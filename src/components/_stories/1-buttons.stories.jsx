@@ -2,11 +2,11 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Button, ButtonColor } from '../buttons';
+import { Button, ButtonColor, ButtonGroup } from '../buttons';
 import theme from '../../styles/theme';
 
 const DemoButtonGroup = styled.div`
-  button {
+  & > * + * {
     margin-right: 5px;
   }
 `;
@@ -33,6 +33,29 @@ import { Button, ButtonColor } from 'components/buttons';
 <Button buttonStyle={ButtonColor.Success}>Success</Button>
 <Button buttonStyle={ButtonColor.Warning}>Warning</Button>
 <Button buttonStyle={ButtonColor.Danger}>Danger</Button>
+    `}</pre></code>
+  </ThemeProvider>
+);
+
+export const ButtonGroups = () => (
+  <ThemeProvider theme={theme}>
+    <h2>Button Groups</h2>
+    <p>
+      Demonstrates how to use groups of buttons
+    </p>
+    <ButtonGroup>
+      <Button onClick={action('Left')}>Left</Button>
+      <Button onClick={action('Middle')}>Middle</Button>
+      <Button onClick={action('Right')}>Right</Button>
+    </ButtonGroup>
+    <code><pre>{`
+import { Button, ButtonGroup } from 'components/buttons';
+
+<ButtonGroup>
+  <Button onClick={action('Left')}>Left</Button>
+  <Button onClick={action('Middle')}>Middle</Button>
+  <Button onClick={action('Right')}>Right</Button>
+</ButtonGroup>
     `}</pre></code>
   </ThemeProvider>
 );

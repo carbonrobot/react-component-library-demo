@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Theme } from '../../styles/theme';
 
 export enum ButtonColor {
   primary = 'primary',
@@ -11,6 +12,7 @@ export enum ButtonColor {
 
 interface Props {
   buttonStyle: ButtonColor;
+  theme: Theme;
 }
 
 const getColorSwatch = (props: Props) => {

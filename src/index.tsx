@@ -1,5 +1,16 @@
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
-import Routes from './routes';
+import { ThemeProvider } from "styled-components";
 
-ReactDOM.render(<Routes />, document.getElementById('root'));
+import Routes from "./routes";
+import theme from "./styles/theme";
+
+import "./styles/index.css";
+
+const App = (): JSX.Element => (
+  <ThemeProvider theme={theme}>
+    <Routes />
+  </ThemeProvider>
+);
+
+ReactDOM.render(<App />, document.getElementById('root'));

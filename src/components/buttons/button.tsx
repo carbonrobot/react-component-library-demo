@@ -1,45 +1,14 @@
-import React from 'react';
+import Color from 'color';
 import styled from 'styled-components';
-import { Theme } from '../../styles/theme';
 
-export enum ButtonColor {
-  primary = 'primary',
-  secondary = 'secondary',
-  success = 'success',
-  danger = 'danger',
-  warning = 'warning',
-}
+import { ButtonColor } from './button-color';
+import { getColor, getBackgroundColor, getBorderColor } from './button-swatch';
 
 interface Props {
-  buttonStyle: ButtonColor;
-  theme: Theme;
+  buttonStyle?: ButtonColor;
 }
 
-const getColorSwatch = (props: Props) => {
-  switch (props.buttonStyle) {
-    case ButtonColor.secondary:
-      return { backgroundColor: '#6c757d', borderColor: '#6c757d', color: '#fff' };
-    case ButtonColor.success:
-      return { backgroundColor: '#28a745', borderColor: '#28a745', color: '#fff' };
-    case ButtonColor.danger:
-      return { backgroundColor: '#dc3545', borderColor: '#dc3545', color: '#fff' };
-    case ButtonColor.warning:
-      return { backgroundColor: '#ffc107', borderColor: '#ffc107', color: '#fff' };
-    case ButtonColor.primary:
-    default:
-      return { backgroundColor: '#007bff', borderColor: '#007bff', color: '#fff' };
-  }
-};
-
-const getBackgroundColor = (props: Props) => getColorSwatch(props).backgroundColor;
-const getBorderColor = (props: Props) => getColorSwatch(props).borderColor;
-const getColor = (props: Props) => getColorSwatch(props).color;
-
-const StyledButton = styled.button`
-  color: ${getColor};
-  background-color: ${getBackgroundColor};
-  border: 1px solid ${getBorderColor};
-
+export const Button = styled.button<Props>`
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -60,6 +29,20 @@ const StyledButton = styled.button`
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-appearance: button;
-`;
 
-export const Button: React.FC<Props> = props => <StyledButton {...props} />;
+  color: ${getColor};
+  background-color: ${getBackgroundColor};
+  border: 1px solid ${getBorderColor};
+
+  :hover {
+    background-color: ${props =>
+      Color(getBackgroundColor(props))
+        .darken(0.5)
+        .string()};
+    border: 1px solid
+      ${props =>
+        Color(getBorderColor(props))
+          .darken(0.5)
+          .string()};
+  }
+`;

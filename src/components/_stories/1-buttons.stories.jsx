@@ -6,7 +6,7 @@ import { Button, ButtonColor, ButtonGroup } from '../buttons';
 import theme from '../../styles/theme';
 
 const DemoButtonGroup = styled.div`
-  & > * + * {
+  > button {
     margin-right: 5px;
   }
 `;

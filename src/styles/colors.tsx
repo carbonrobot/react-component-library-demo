@@ -9,9 +9,5 @@ export enum Colors {
   BgSuccess = 'bg-success',
   BgWarning = 'bg-warning',
   BgDanger = 'bg-danger',
-  BorderPrimary = 'border-primary',
-  BorderSecondary = 'border-secondary',
-  BorderSuccess = 'border-success',
-  BorderWarning = 'border-warning',
-  BorderDanger = 'border-danger',
+  Border = 'border'
 }

@@ -2,9 +2,6 @@ import { DefaultTheme } from 'styled-components';
 import { Colors } from './colors';
 
 const theme: DefaultTheme = {
-  gutter: '20px',
-  globalTransition: 'all 0.3s ease 0s',
-
   colors: {
     [Colors.TextPrimary]: '#fff',
     [Colors.TextSecondary]: '#fff',
@@ -18,12 +15,12 @@ const theme: DefaultTheme = {
     [Colors.BgWarning]: '#ffc107',
     [Colors.BgDanger]: '#dc3545',
 
-    [Colors.BorderPrimary]: '#007bff',
-    [Colors.BorderSecondary]: '#6c757d',
-    [Colors.BorderSuccess]: '#28a745',
-    [Colors.BorderWarning]: '#ffc107',
-    [Colors.BorderDanger]: '#dc3545',
+    [Colors.Border]: 'rgba(0, 0, 0, 0.125)',
   },
+
+  cornerRadius: '0.25rem',
+  globalTransition: 'all 0.3s ease 0s',
+  gutter: '20px',
 };
 
 export default theme;

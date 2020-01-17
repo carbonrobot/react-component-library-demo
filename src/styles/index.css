@@ -13,9 +13,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+pre {
+  background-color: bisque;
+  padding: 0 20px;
+  border: 1px solid burlywood;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 /* Story book support */

@@ -18,7 +18,7 @@ export const Button = styled.button<Props>`
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: ${props => props.theme.cornerRadius};
   transition: color 0.15s;
   text-transform: none;
   overflow: visible;
@@ -32,7 +32,10 @@ export const Button = styled.button<Props>`
 
   color: ${getColor};
   background-color: ${getBackgroundColor};
-  border: 1px solid ${getBorderColor};
+  border: 1px solid ${props =>
+    Color(getBackgroundColor(props))
+      .darken(0.2)
+      .string()};
 
   :hover {
     background-color: ${props =>
